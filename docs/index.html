@@ -104,20 +104,17 @@
     box-sizing: border-box;
   }
 
-  input, select {
+  input,
+select {
   width: 100%;
+  height: 2.8rem;          /* 👈 SÍ, fija */
+  padding: 0 0.75rem;      /* 👈 solo horizontal */
+  font-size: 0.9rem;       /* 👈 NO bajar más */
+  line-height: 1;          /* 👈 clave */
+  margin-bottom: 1.125rem;
 
-  height: 2rem;
-  padding: 0.3rem 0.5rem;
-
-  font-size: 1rem;
-  line-height: 1.2;
-
-  margin-bottom: 0.75rem;
-
-  border: 0.12rem solid #888;
-  border-radius: 0.5rem;
-
+  border: 0.15625rem solid #888;
+  border-radius: 0.625rem;
   background-color: #fff;
   box-sizing: border-box;
 }
