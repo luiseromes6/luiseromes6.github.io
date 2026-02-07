@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base target="_top" />
+<!-- <base target="_top" /> -->
     <meta name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
 
@@ -26,9 +26,14 @@
 
     <style>
   html {
-    font-size: 24px; /* 🔥 tamaño base más grande */
+    font-size: 16px;
   }
 
+  html, body {                        /* Esto lo acabo de agregar a ver si funciona */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}    
+      
   body {
     font-family: sans-serif;
     background: linear-gradient(135deg, #f1fcff 0%, #d0ecff 100%);
