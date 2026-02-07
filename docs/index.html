@@ -25,372 +25,211 @@
 
 
     <style>
-  html {
-    font-size: 16px;
-  }
+html {
+  font-size: 16px;
+}
 
-  html, body {                        /* Esto lo acabo de agregar a ver si funciona */
+html, body {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }    
-      
-  body {
-    font-family: sans-serif;
-    background: linear-gradient(135deg, #f1fcff 0%, #d0ecff 100%);
-    margin: 20px;       /* margen alrededor de toda la app */
-    padding: 20px;      /* espacio interno alrededor del contenido */
-    box-sizing: border-box; /* para que padding no rompa el ancho */
-    max-width: 480px;    /* opcional: ancho máximo de la app */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    zoom: 0.55;
-  }
 
-  /* h2 {
-    text-align: center;
-    font-size: 62px;
-    margin: 20px 0;
-  } */
+body {
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #f1fcff 0%, #d0ecff 100%);
+  margin: 1.25rem;       /* 20px -> 1.25rem */
+  padding: 1.25rem;      /* 20px -> 1.25rem */
+  box-sizing: border-box;
+  max-width: 30rem;      /* 480px -> 30rem */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  /* Voy a usar este estilo del título a ver cómo se ve */
-  h2 {
+/* Títulos */
+h2 {
   text-align: center;
-  font-size: 5rem; /* Más grande en móviles (80px aprox) */
-  margin: 20px 0 30px;
-  background: linear-gradient(135deg, #4CAF50, #2196F3); /* Verde a azul */
+  font-size: 5rem;       /* ya estaba en rem, ~80px */
+  margin: 1.25rem 0 1.875rem; /* 20px 0 30px -> rem */
+  background: linear-gradient(135deg, #4CAF50, #2196F3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra dramática */
-  letter-spacing: 2px; /* Espaciado pro */
-  animation: glow 2s ease-in-out infinite alternate; /* Brillo sutil */
+  text-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.3); /* 4px 12px -> rem */
+  letter-spacing: 0.125rem; /* 2px -> rem */
+  animation: glow 2s ease-in-out infinite alternate;
   position: relative;
 }
 
 h2::before {
-  content: "🛒 "; /* Icono de tienda */
+  content: "🛒 ";
   font-size: 1.2em;
 }
 
 @keyframes glow {
-  from { text-shadow: 0 4px 12px rgba(76,175,80,0.5); }
-  to { text-shadow: 0 4px 20px rgba(33,150,243,0.7); }
+  from { text-shadow: 0 0.25rem 0.75rem rgba(76,175,80,0.5); }
+  to { text-shadow: 0 0.25rem 1.25rem rgba(33,150,243,0.7); }
 }
 
-  h3 {
-    font-size: 45px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+h3 {
+  font-size: 2.8125rem; /* 45px -> 2.8125rem */
+  text-align: center;
+  margin-bottom: 1.25rem; /* 20px -> rem */
+}
 
-  button {
-    width: 90%;
-    padding: 26px;
-    font-size: 46px;
-    margin: 12px 0;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 14px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  }
+button {
+  width: 90%;
+  padding: 1.625rem;    /* 26px -> rem */
+  font-size: 2.875rem;  /* 46px -> rem */
+  margin: 0.75rem 0;    /* 12px -> rem */
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 0.875rem; /* 14px -> rem */
+  box-shadow: 0 0.25rem 0.375rem rgba(0,0,0,0.2); /* 4px 6px */
+}
 
-  button:hover {
-    background-color: #45a049;
-  }
+button:hover {
+  background-color: #45a049;
+}
 
-  .seccion {
+.seccion {
   display: none;
   flex-direction: column;
   align-items: center;
   width: 100%;
-
-  /* Nuevo para mejorar UX en móviles y formularios largos */
-  max-height: 80vh;        /* limita la altura visible a 80% de viewport */
-  overflow-y: auto;        /* activa scroll vertical interno si contenido es muy largo */
-  padding-bottom: 60px;    /* espacio para que no tape el mensaje sticky, si lo usas */
-  box-sizing: border-box;  /* para que padding no añada tamaño extra */
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-bottom: 3.75rem; /* 60px -> rem */
+  box-sizing: border-box;
 }
 
-
-  /*
-.formulario {
-  width: 90%;
-  max-width: 480px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+input, select {
+  padding: 1.5625rem;  /* 25px -> rem */
+  font-size: 1.875rem; /* 30px -> rem */
+  margin-bottom: 1.125rem; /* 18px -> rem */
+  border: 0.15625rem solid #888; /* 2.5px -> rem */
+  border-radius: 0.625rem;       /* 10px -> rem */
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
 }
-*/
 
-
-  input, select {
-    padding: 25px;
-    font-size: 30px;
-    margin-bottom: 18px;
-    border: 2.5px solid #888;      /* borde más notorio */
-    border-radius: 10px;
-    background-color: #fff;        /* siempre fondo blanco */
-    box-sizing: border-box;        /* para que padding no desborde */
-    transition: border-color .2s;
-}
 input:focus, select:focus {
-    border-color: #0072f7;
-    outline: none;
-    box-shadow: 0 0 4px #9cf;
+  border-color: #0072f7;
+  outline: none;
+  box-shadow: 0 0 0.25rem #9cf; /* 4px -> rem */
 }
-  .volver {
-    background-color: #777;
-  }
 
-  .mensaje {
+.volver {
+  background-color: #777;
+}
+
+.mensaje {
   position: sticky;
   top: 0;
   background-color: #fff;
-  color: #20b050;      /* Verde para éxito */
+  color: #20b050;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 2.5rem;   /* 40px -> rem */
   text-align: center;
-  margin-top: 1px;
-  padding: 8px 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.10);
+  margin-top: 0.0625rem; /* 1px -> rem */
+  padding: 0.5rem 1rem;  /* 8px 16px -> rem */
+  box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.10); /* 2px 5px */
   z-index: 1001;
-  border-radius: 6px;
+  border-radius: 0.375rem; /* 6px -> rem */
   transition: color 0.2s;
 }
 
-  
-  .label-fecha {
-  font-size: 43px; 
-  margin-left: 22px;
-  color: #555;        /* Así igualo el tono a los placeholders */
+.label-fecha {
+  font-size: 2.6875rem; /* 43px -> rem */
+  margin-left: 1.375rem; /* 22px -> rem */
+  color: #555;
 }
+
 input::placeholder,
 select::placeholder {
-    font-size: 39px;
-    color: #555;
-    opacity: 1;
+  font-size: 2.4375rem; /* 39px -> rem */
+  color: #555;
+  opacity: 1;
 }
-/* ⬆️ Fin del estilo de placeholders Monto del pago⬆️ */
 
 select {
-    font-size: 43px;    
-}
-/*
-.cliente-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  padding: 16px 20px;
-  font-size: 22px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-  outline: none;
+  font-size: 2.6875rem; /* 43px -> rem */
 }
 
-.cliente-card:hover,
-.cliente-card:focus {
-  background-color: #e6f2ff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.cliente-card h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.7rem;
-  font-weight: 700;
-}
-
-.cliente-card p {
-  margin: 4px 0;
-  font-size: 1.5rem;
-  color: #333333;
-}
-*/
-
-
-/*
-#tablaAgenda table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 40px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-
-#tablaAgenda th, #tablaAgenda td {
-  padding: 14px 10px;
-  border-bottom: 1px solid #e0e0e0;
-  text-align: center;
-}
-
-.estado-pagado { color: #20b050; font-weight: bold; }
-.estado-pendiente { color: #f0b500; font-weight: bold; }
-.estado-vencido { color: #e03c32; font-weight: bold; }
-.estado-parcial {color: #f0a500; font-weight: bold;}
-*/
-
-@media (min-width: 900px) {
-  body {
-    font-size: 20px;
-    max-width: 800px;
-    margin: 2em auto;
-  }
-  .contenedor-formulario, .tabla, .seccion {
-    max-width: 900px;
-    margin: 0 auto 2em auto;
-  }
-  /* Ejemplo: Mostrar dos columnas en PC */
-  .form-grupo {
-    display: flex;
-    gap: 24px;
-  }
-  .form-grupo > div {
-    flex: 1;
-  }
-  .lista-productos {
-  width: 90%;
-  max-height: 300px;
-  overflow-y: auto;
-  background: #fff;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.item-producto {
-  padding: 18px;
-  font-size: 36px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-}
-
-.item-producto:hover {
-  background-color: #e6f2ff;
-}
-
-.lista-productos {
-  width: 90%;
-  margin-top: 10px;
-}
-
-.item-producto {
-  background-color: white;
-  padding: 18px;
-  font-size: 32px;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
-}
-
-.item-producto:hover {
-  background-color: #e6f2ff;
-}
-
-.campo-label {
-  font-size: 30px;        /* 👈 coherente con mis inputs */
-  font-weight: 600;
-  color: #555;
-  margin-top: 12px;
-  margin-bottom: 6px;
-  display: none;
-}
-
-
-
-/* 📊 RESUMEN DEL DÍA */
 .resumen-item {
   width: 90%;
   background: white;
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  border-radius: 0.75rem; /* 12px -> rem */
+  padding: 1.125rem;      /* 18px -> rem */
+  margin-bottom: 1rem;    /* 16px -> rem */
+  box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.12); /* 2px 6px */
   text-align: center;
 }
 
 .resumen-item strong {
-  font-size: 30px;   /* 🔥 TÍTULO (Total Ventas, etc.) */
+  font-size: 1.875rem; /* 30px -> rem */
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem; /* 8px -> rem */
 }
 
 .resumen-item div {
-  font-size: 40px;   /* 🔥 VALOR ($123.45) */
+  font-size: 2.5rem; /* 40px -> rem */
   font-weight: bold;
   color: #20b050;
 }
 
-/* BOTÓN Productos críticos */
+/* Botón Stock Crítico */
 #btnStockCritico {
   width: 90%;
-  padding: 26px;
-  font-size: 46px;
-  margin: 12px 0;
-  background-color: #f59e0b; /* naranja fuerte para alerta */
+  padding: 1.625rem;    /* 26px -> rem */
+  font-size: 2.875rem;  /* 46px -> rem */
+  margin: 0.75rem 0;    /* 12px -> rem */
+  background-color: #f59e0b;
   color: white;
   border: none;
-  border-radius: 14px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  border-radius: 0.875rem; /* 14px -> rem */
+  box-shadow: 0 0.25rem 0.375rem rgba(0,0,0,0.2); /* 4px 6px */
 }
 
 #btnStockCritico:hover {
   background-color: #d97706;
 }
 
-/* LISTA de productos críticos */
+/* Lista productos críticos */
 #listaStockCritico .item-producto {
   background-color: #fff;
-  padding: 18px;
-  font-size: 36px;
-  border-bottom: 1px solid #ccc;
+  padding: 1.125rem;  /* 18px -> rem */
+  font-size: 2.25rem; /* 36px -> rem */
+  border-bottom: 0.0625rem solid #ccc; /* 1px -> rem */
 }
 
-/* Colores según tipo de stock */
-#listaStockCritico .agotado {
-  color: #b91c1c; /* rojo fuerte para agotados */
-}
-
-#listaStockCritico .bajo {
-  color: #b45309; /* naranja fuerte para stock bajo */
-}
-
-/* 🔧 MODIFICADO */
+/* Banner crítico */
 .banner-critico {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   width: 100%;
-  background-color: #f59e0b; /* naranja fuerte para alerta */;
-color: white;
-  /* color: white; */ 
+  background-color: #f59e0b;
+  color: white;
   font-weight: bold;
-  font-size: 1.4rem;
-
-  padding: 12px 40px 12px 16px; /* espacio para la X */
+  font-size: 1.4rem; /* ya estaba */
+  padding: 0.75rem 2.5rem 0.75rem 1rem; /* 12 40 12 16 px -> rem */
   display: flex;
   align-items: center;
-
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.15);
 }
 
-/* 🔧 MODIFICADO */
 .banner-critico span {
   width: 100%;
   text-align: center;
-  white-space: nowrap;      /* una sola línea */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
-
-
-/* 🔧 MODIFICADO */
 .cerrar-banner {
   margin-left: auto;
   background: transparent;
@@ -398,18 +237,43 @@ color: white;
   color: white;
   font-size: 2rem;
   cursor: pointer;
-
-  padding: 2px;      /* 👈 MENOS espacio */
-  width: 18px;       /* 👈 controla ancho */
-  height: 18px;      /* 👈 controla alto */
-  line-height: 18px; /* 👈 centra la X */
+  padding: 0.125rem; /* 2px -> rem */
+  width: 1.125rem;   /* 18px -> rem */
+  height: 1.125rem;
+  line-height: 1.125rem;
 }
 
-
-
+@media (min-width: 900px) {
+  body {
+    font-size: 1.25rem; /* 20px -> rem */
+    max-width: 50rem;   /* 800px -> rem */
+    margin: 2em auto;
+  }
+  .contenedor-formulario, .tabla, .seccion {
+    max-width: 56.25rem; /* 900px -> rem */
+    margin: 0 auto 2em auto;
+  }
+  .form-grupo {
+    display: flex;
+    gap: 1.5rem; /* 24px -> rem */
+  }
+  .lista-productos {
+    width: 90%;
+    max-height: 18.75rem; /* 300px -> rem */
+    overflow-y: auto;
+    background: #fff;
+    border: 0.125rem solid #ccc; /* 2px -> rem */
+    border-radius: 0.625rem; /* 10px -> rem */
+    margin-bottom: 1.25rem; /* 20px -> rem */
+  }
+  .item-producto {
+    padding: 1.125rem;  /* 18px -> rem */
+    font-size: 2rem;    /* 32px -> rem */
+    border-bottom: 0.0625rem solid #ccc; /* 1px -> rem */
+  }
 }
-
 </style>
+
   </head>
 
 <body onload="cargarProductos(); verificarBanner();">
