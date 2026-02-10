@@ -1,7 +1,7 @@
 {
   "name": "TiendaControl Pro",
   "short_name": "TiendaControl",
-  "start_url": "/",
+  "start_url": "https://script.google.com/macros/s/AKfycbx3o8_fnwKiw1QfdSE4wpUSbf8Z9kTOg016-FKLOrFmHCVh_RAzHBdqHw17GidXETMX/exec",
   "display": "standalone",
   "background_color": "#f1fcff",
   "theme_color": "#4CAF50",
